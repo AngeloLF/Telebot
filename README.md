@@ -2,7 +2,7 @@
 
 Bot Telegram qui permet d'envoyer un / des message(s) à une ou plusieurs personnes.
 
-Faire `python telebot.py test` pour faire un test, après avoir créé les dossiers avec les ids et le token du bot, comme écrit ci-dessous.
+Faire `python Telebot/telebot.py test` pour faire un test, après avoir créé les dossiers avec les ids et le token du bot, comme écrit ci-dessous.
 Les dossiers fonder_ids et folder_bot sont en.gitignore.
 
 
