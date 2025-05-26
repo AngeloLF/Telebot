@@ -7,7 +7,6 @@ __pycache__/
 *.so
 
 # Perso git
-params.py
 folder_ids/
 folder_bot/
 

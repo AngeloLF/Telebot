@@ -30,10 +30,10 @@ async def asyncSending(texts, bot_token, userIDs, printage=True):
         for t in texts:
 
             # On itère sur les users
-            for user in userIDs:
+            for user_name, user_id in userIDs.items():
 
-                await bot.send_message(chat_id=user, text=f"{t}")
-                if printage : print(f"{c.ti}<{c.y}{bot_name}{c.d}{c.ti}> send to ID={c.ly}{user}{c.d}{c.ti} : {c.y}{t}{c.d}")
+                await bot.send_message(chat_id=user_id, text=f"{t}")
+                if printage : print(f"{c.ti}<{c.tu}{bot_name}{c.d}{c.ti}> send to {c.ly}{user_name}{c.d}{c.ti} : {c.y}{t}{c.d}")
 
     except Exception as e:
 
@@ -47,7 +47,7 @@ def send_message(texts, folder_ids=None, folder_bot=None, printage=True):
     Fonction send_message. Permet d'envoyer le(s) str donné dans `texts`
 
     Params:
-        texts [str, list[str]] : Str ou list d'str a envoyer par le bot
+        texts [str, list[str]] : Str ou list d'str a envoyer par le bot (ca peut être un type convertisable en str, comme un int, un float...)
         folder_ids [str]       : Dossier avec des `.txt` qui contienne les users IDs. Si `None`, le FOLDER_IDS donné par `params.py` est choisi (prefered).
         folder_bot [str]       : Dossier avec `bot_token.txt` qui contient le token du bot. Si `None`, le FOLDER_BOT donné par `params.py` est choisi (prefered).
     """
@@ -59,10 +59,10 @@ def send_message(texts, folder_ids=None, folder_bot=None, printage=True):
 
 
     # Recup. user IDs
-    userIDs = list()
+    userIDs = dict()
     for file in os.listdir(folder_ids):
         with open(f"{folder_ids}/{file}", "r") as f: 
-            userIDs.append(f.read())
+            userIDs[file[:-4]] = f.read()
 
 
     # Recup. bot token
@@ -71,7 +71,7 @@ def send_message(texts, folder_ids=None, folder_bot=None, printage=True):
 
 
     # Si texts est un str, on le met dans une liste
-    texts = text if isinstance(text, (list)) else [text]
+    texts = texts if isinstance(texts, (list)) else [texts]
 
 
     # run asyncSending 
