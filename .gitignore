@@ -8,6 +8,8 @@ __pycache__/
 
 # Perso git
 params.py
+folder_ids/
+folder_bots/
 
 # Distribution / packaging
 .Python
