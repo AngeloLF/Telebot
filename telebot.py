@@ -42,7 +42,7 @@ async def asyncSending(texts, bot_token, userIDs, printage=True):
 
 
 
-def send_message(texts, folder_ids=None, folder_bot=None):
+def send_message(texts, folder_ids=None, folder_bot=None, printage=True):
     """
     Fonction send_message. Permet d'envoyer le(s) str donné dans `texts`
 
@@ -75,7 +75,7 @@ def send_message(texts, folder_ids=None, folder_bot=None):
 
 
     # run asyncSending 
-    asyncio.run(asyncSending(texts, bot_token, userIDs))
+    asyncio.run(asyncSending(texts, bot_token, userIDs, printage))
 
 
 
