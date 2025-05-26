@@ -9,7 +9,7 @@ __pycache__/
 # Perso git
 params.py
 folder_ids/
-folder_bots/
+folder_bot/
 
 # Distribution / packaging
 .Python
